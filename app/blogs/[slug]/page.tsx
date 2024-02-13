@@ -3,7 +3,6 @@ import path from 'path'
 import matter from 'gray-matter'
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 
 export async function generateStaticParams(){
 
@@ -34,13 +33,13 @@ function getPost({slug}: {slug: string}){
 export default function Page({ params } :any){
     const props = getPost( params);
     return (
-        <MaxWidthWrapper>
+      
 
-        <article className='prose prose-sm  lg:prose-lg'>
+        <article className='prose dark:!prose-invert mt-24 md:mt-4'>
             <h1>{props.fontMatter.title}</h1>
-
-            <MDXRemote source={props.content} ></MDXRemote>
+               
+            <MDXRemote source={props.content} />
+                
         </article>
-        </MaxWidthWrapper>
     )
 }

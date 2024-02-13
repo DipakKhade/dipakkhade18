@@ -11,7 +11,7 @@ const MaxWidthWrapper = ({
   return (
     <div
       className={twMerge(
-        'mx-auto w-full md:max-w-screen-md md:px-20 min-h-screen',
+        'p-4 mx-auto w-full md:max-w-screen-md md:px-20 lg:max-w-4xl min-h-screen',
         className
       )}>
       {children}

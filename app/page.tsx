@@ -4,6 +4,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import Link from 'next/link';
+import Image from 'next/image';
 interface pageProps {
    
 }
@@ -29,9 +30,11 @@ const page: FunctionComponent<pageProps> = () => {
 
   // console.log(blogs)
 
-    return (  <main className='flex flex-col'>
+    return ( 
+        
+      <main className='flex flex-col min-h-screen'>
     <h1 className='text-3xl font-bold'>
-      My Next.Js Blog Site
+    notes
     </h1>
 
     <section className='py-10'>
@@ -39,12 +42,14 @@ const page: FunctionComponent<pageProps> = () => {
       Latest Blogs
     </h2>
 
-    <div className='py-2'>
+    <div className='py-2 flex flex-wrap md:flex-nowrap'>
       {blogs.map(blog =>(
         <Link href={'/blogs/' + blog.slug} passHref key={blog.slug}>
+          <Image src={blog.meta.image} alt='img'width={300} height={300}/>
+    
           <div className='py-2 flex justify-between align-middle gap-2'>
             <div>
-              <h3 className='text-lg font-blod'>
+              <h3 className='text-lg font-blod p-2'>
                 {blog.meta.title}
               </h3>
               <div>
@@ -60,7 +65,9 @@ const page: FunctionComponent<pageProps> = () => {
       ))}
     </div>
     </section>
-   </main> );
+   </main>
+   
+    );
 }
 
 export default dynamic (() => Promise.resolve(page), {ssr: false})
