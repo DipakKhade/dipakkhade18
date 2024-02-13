@@ -6,6 +6,7 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { NextAuthProvider } from "./AuthProvider";
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <MaxWidthWrapper>
+          <NextAuthProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -32,7 +34,9 @@ export default function RootLayout({
             <main className="mt-24">{children}</main>
             <Toaster />
             <Footer />
+
           </ThemeProvider>
+          </NextAuthProvider>
         </MaxWidthWrapper>
       </body>
     </html>

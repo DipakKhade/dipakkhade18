@@ -13,6 +13,7 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
 import MaxWidthWrapper from "./MaxWidthWrapper";
+import AuthButton from "./AuthButton";
 
   
 interface HeaderProps {
@@ -32,7 +33,7 @@ const Header: FC<HeaderProps> = () => {
                 <li className="hover:text-blue-500 cursor-pointer pt-2"><Link href={'/about'}>About</Link></li>
                 <li className="hover:text-blue-500 cursor-pointer pt-2"><Link href={'/contact'}>Contact</Link></li>
                 <ModeToggle/>
-                <Button>sign in</Button>
+                <AuthButton/>
             </ol>
 
             <div className="sm:hidden p-2 flex gap-2 overflow-x-hidden">
