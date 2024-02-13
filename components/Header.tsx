@@ -23,19 +23,19 @@ const Header: FC<HeaderProps> = () => {
       <nav className="fixed top-0 mx-auto w-full md:max-w-screen-md md:px-20 lg:max-w-4xl bg-light/80 backdrop-blur-md z-50">
         <ol className="hidden sm:flex gap-14 p-6 text-md font-medium">
           <Link href={"/"}>
-            <Image src={logo} alt="logo" className="w-12 rounded-md" />
+            <Image src={logo} alt="logo" className="w-12 rounded-md fixed left-2" />
           </Link>
           <li className="hover:text-blue-500 cursor-pointer pt-2">
             <Link href={"/"}>Home</Link>
           </li>
           <li className="hover:text-blue-500 cursor-pointer pt-2">
-            <Link href={"/about"}>About</Link>
+            <Link href={"/"}>About</Link>
           </li>
           <li className="hover:text-blue-500 cursor-pointer pt-2">
-            <Link href={"/contact"}>Contact</Link>
+            <Link href={"/"}>Contact</Link>
           </li>
           <ModeToggle />
-          <div className="ml-12">
+          <div className="ml-20">
             <AuthButton />
           </div>
         </ol>

@@ -5,8 +5,9 @@ import Header from "@/components/Header";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
-import { Toaster } from "@/components/ui/toaster";
 import { NextAuthProvider } from "./AuthProvider";
+import { Toaster, toast } from 'sonner'
+import NextTopLoader from 'nextjs-toploader';
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -31,7 +32,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Header />
-            <main className="mt-24">{children}</main>
+            <main className="mt-24">
+            <NextTopLoader color="#2563EB" height={2}/>
+              {children}
+              </main>
             <Toaster />
             <Footer />
 

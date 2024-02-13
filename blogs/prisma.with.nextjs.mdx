@@ -1,7 +1,7 @@
 ---
 image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5OVg8Rn64TfpARVXG7dJaNU7QC5_QYvF6hGNqRSVXM-AztZk9VhDWcZCciRhnBceGEBg&usqp=CAU
-title: Getting Started with Prisma and Next.js 14
-date: February 12, 2024
+title: Getting Started with Prisma in Next.js 14
+date: Feb 12, 2024
 description: Dipak Khade
 ---
 
@@ -41,10 +41,113 @@ Follow the prompts to select your database and set up your Prisma schema.
 
 ## Step 4: Connecting Prisma to Next.js
 
-In order to use Prisma in our Next.js application, we need to establish a connection to our database. We'll do this in a separate file called 
+In order to use Prisma in our Next.js application, we need to establish a connection to our database.
+demo code using mongodb
 
+```
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model todos {
+  mongod      String @id @default(auto()) @map("_id") @db.ObjectId // Assuming _id is a string and auto-generated
+  title     String
+  completed Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+```
+
+## Step 5 : prisma generator
+
+this will under the hood hood create the schema for mongodb
+```
+prisma generate
+```
+
+## Step 6 : export prisma 
+make file prisma.ts in lib and export the prisma function as follows:
+```
+import { PrismaClient } from '@prisma/client'
+
+const prismaClientSingleton = () => {
+  return new PrismaClient()
+}
+
+declare global {
+  var prisma: undefined | ReturnType<typeof prismaClientSingleton>
+}
+
+const prisma = globalThis.prisma ?? prismaClientSingleton()
+
+export default prisma
+
+if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma
+```
+
+## step 5 : read and write into database via prisma client
+make a file lib/index.ts to export the functions that communicates to database 
+```
+import prisma from "./prisma";
+
+export async function getTodos() {
+  try {
+    const todos = await prisma.todos.findMany();
+    return { todos };
+    console.log({todos})
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getTodos()
+export async function createTodo(title: string) {
+  try {
+    const todo = await prisma.todos.create({ data: { title } });
+    return { todo };
+  } catch (error) {
+    return { error };
+  }
+}
+```
+
+## step 6 : get data in frontend 
+we use the above exported function to get the data from databse and map the data as we want
+
+```
+import { FunctionComponent } from "react";
+import { getTodos } from "@/lib/todo";
+
+interface TodoItemProps {
+    
+}
+ 
+const TodoItem: FunctionComponent<TodoItemProps> =async () => {
+    const {todos} =await getTodos()
+    return ( <>
+    
+    <div>
+    {
+    todos?.map((todo,index)=>(
+      <ul key={index}>{todo.title}</ul>
+      ))
+    }
+    </div>
+
+    </> );
+}
+ 
+export default TodoItem;
+```
 ## Conclusion
 
-Congratulations! You've successfully integrated Prisma into your Next.js 14 project. Now you can perform database operations easily using Prisma's powerful features.
+ You've successfully integrated Prisma into your Next.js 14 project. Now you can perform database operations using Prisma's powerful features.
 
-Happy coding!
+

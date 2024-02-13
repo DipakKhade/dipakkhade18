@@ -5,12 +5,12 @@ import path from 'path'
 import matter from 'gray-matter'
 import Link from 'next/link';
 import Image from 'next/image';
+import Search from '@/components/Search';
 interface pageProps {
    
 }
  
 const page: FunctionComponent<pageProps> = () => {
-
     const blogDir  = "blogs";
 
   const files = fs.readdirSync(path.join(blogDir));
@@ -33,16 +33,11 @@ const page: FunctionComponent<pageProps> = () => {
     return ( 
         
       <main className='flex flex-col min-h-screen'>
-    <h1 className='text-3xl font-bold'>
-    notes
-    </h1>
-
+   
     <section className='py-1'>
-    <h2 className='text-2xl font-blod'>
-      Latest Blogs
-    </h2>
-
-    <div className='py-2 flex flex-wrap md:flex-nowrap'>
+   <h3 className='text-2xl'> &lt;Dipak  props=&#123;notes &#125;/ &gt;</h3>
+<Search/>
+    <div className='p-2 flex flex-wrap md:flex-nowrap'>
       {blogs.map(blog =>(
         <Link href={'/blogs/' + blog.slug} passHref key={blog.slug}>
           <Image src={blog.meta.image} alt='img'width={300} height={300}/>

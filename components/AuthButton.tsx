@@ -8,7 +8,7 @@ interface AuthButtonProps {}
 
 const AuthButton: FC<AuthButtonProps> = () => {
   const { data: session, status } = useSession();
-  console.log(status);
+//   console.log(status);
   return (
     <>
       {status == "unauthenticated" ? (
