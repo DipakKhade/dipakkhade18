@@ -21,7 +21,7 @@ const AuthButton: FC<AuthButtonProps> = () => {
         onClick={()=>signOut()}
         >sign out</Button>
         <Avatar>
-  <AvatarImage src={session?.user?.image} />
+  <AvatarImage src={session?.user?.image ||''} />
   <AvatarFallback>DK</AvatarFallback>
 </Avatar>
         </div>
