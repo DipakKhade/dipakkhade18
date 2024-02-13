@@ -37,7 +37,7 @@ const page: FunctionComponent<pageProps> = () => {
     notes
     </h1>
 
-    <section className='py-10'>
+    <section className='py-1'>
     <h2 className='text-2xl font-blod'>
       Latest Blogs
     </h2>
@@ -56,7 +56,7 @@ const page: FunctionComponent<pageProps> = () => {
               
                 <p className='text-gray-400'>{blog.meta.description}</p>
               </div>
-              <div className='my-auto text-gray-400'>
+              <div className='text-gray-400'>
                 <p>{blog.meta.date}</p>
               </div>
              </div> 
@@ -66,6 +66,7 @@ const page: FunctionComponent<pageProps> = () => {
     </div>
     </section>
    </main>
+
    
     );
 }

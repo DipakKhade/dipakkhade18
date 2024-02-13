@@ -8,7 +8,7 @@ const Footer: FC<FooterProps> = () => {
   return (
     <>
       <footer className="mt-12">
-        <div className="h-56 sm:h-48 transition-height relative rounded-md sm:rounded-3xl from-react to-react-link px-8 py-9 duration-500 sm:px-9 shadow-lg bg-gradient-to-br from-sky-500 to-indigo-500">
+        <div className="h-auto sm:h-auto transition-height rounded-md sm:rounded-3xl px-4 sm:px-8 py-6 sm:py-9 duration-500 shadow-lg bg-gradient-to-br from-sky-500 to-indigo-500">
           <div className="mb-5 text-white">
             <p className="text-xl font-bold">Subscribe to my newsletter</p>
             <p className="text-sm text-gray-600">Get updates on new notes</p>
@@ -30,7 +30,7 @@ const Footer: FC<FooterProps> = () => {
           </form>
           <canvas
             className="pointer-events-none absolute top-0 left-0"
-            width="407.3333435058594"
+            width="207.3333435058594"
             height="224"
           ></canvas>
         </div>
@@ -44,6 +44,7 @@ const Footer: FC<FooterProps> = () => {
           &#169; Dipak Khade , Inc. All rights reserved.
         </div>
       </footer>
+
     </>
   );
 };
