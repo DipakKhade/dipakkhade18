@@ -12,9 +12,10 @@ const AuthButton: FC<AuthButtonProps> = () => {
   return (
     <>
       {status == "unauthenticated" ? (
-        <Button
+            <Button
         onClick={()=>signIn('google')}
         >sign in</Button>
+      
       ) : (
         <div className="flex">
         <Button
