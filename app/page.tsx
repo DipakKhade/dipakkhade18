@@ -39,8 +39,8 @@ const page: FunctionComponent<pageProps> = () => {
 <Search/>
     <div className='p-2 mt-6 gap-6 flex flex-wrap md:flex-nowrap'>
       {blogs.map(blog =>(
-        <Link href={'/blogs/' + blog.slug} passHref >
-          <div key={blog.slug} className='shadow-sm hover:shadow-md rounded-sm'>
+        <Link href={'/blogs/' + blog.slug} passHref key={blog.slug}>
+          <div className='shadow-sm hover:shadow-md rounded-sm'>
           <Image src={blog.meta.image} alt='img'width={500} height={300}/>
     
           <div className='p-6 flex justify-between align-middle gap-6'>
