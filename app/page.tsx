@@ -6,6 +6,7 @@ import matter from 'gray-matter'
 import Link from 'next/link';
 import Image from 'next/image';
 import Search from '@/components/Search';
+import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 interface pageProps {
    
 }
@@ -31,18 +32,18 @@ const page: FunctionComponent<pageProps> = () => {
   // console.log(blogs)
 
     return ( 
-        
       <main className='flex flex-col min-h-screen'>
    
     <section className='py-1'>
-   <h3 className='text-2xl text-slate-950'> &lt;Dipak  props=&#123;notes &#125; / &gt;</h3>
+   <h3 className='text-2xl text-slate-950 dark:text-slate-200'> &lt;Dipak  props=&#123;notes &#125; / &gt;</h3>
 <Search/>
-    <div className='p-2 flex flex-wrap md:flex-nowrap'>
+    <div className='p-2 mt-6 gap-6 flex flex-wrap md:flex-nowrap'>
       {blogs.map(blog =>(
-        <Link href={'/blogs/' + blog.slug} passHref key={blog.slug}>
-          <Image src={blog.meta.image} alt='img'width={300} height={300}/>
+        <Link href={'/blogs/' + blog.slug} passHref >
+          <div key={blog.slug} className='shadow-sm hover:shadow-md rounded-sm'>
+          <Image src={blog.meta.image} alt='img'width={500} height={300}/>
     
-          <div className='py-2 flex justify-between align-middle gap-2'>
+          <div className='p-6 flex justify-between align-middle gap-6'>
             <div>
               <h3 className='text-lg font-blod p-2'>
                 {blog.meta.title}
@@ -56,12 +57,12 @@ const page: FunctionComponent<pageProps> = () => {
               </div>
              </div> 
           </div>
+          </div>
         </Link>
       ))}
     </div>
     </section>
    </main>
-
    
     );
 }
