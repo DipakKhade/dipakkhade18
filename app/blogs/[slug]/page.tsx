@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, Clock10 } from 'lucide-react'
 
     export async function generateStaticParams(){
 
@@ -38,18 +38,22 @@ export default function Page({ params } :any){
     // console.log(props)
     return (
       
-<main className='gap-8 md:flex'>
+<main className='gap-6'>
 
+<div className='flex'>
 <Link href='/'>
 <Button className='bg-white text-gray-800 border hover:text-white'><ChevronLeft />see all posts</Button>
 </Link>
-        <article className='prose dark:!prose-invert mt-24 md:mt-4'>
+<p className='flex gap-2 pl-8 md:pl-48 text-sm pt-2 text-gray-600'><Clock10 className='text-blue-400 text-sm' /> 7 min read .</p>
+</div>
+        <article className='prose dark:!prose-invert mt-16 md:mt-4'>
 
             <h1>{props.fontMatter.title}</h1>
                <Image src={props.fontMatter.image} alt='' width={600} height={300}/>
             <MDXRemote source={props.content} />
                 
         </article>
+
         </main>
     )
 }
