@@ -57,7 +57,7 @@ const Header: FC<HeaderProps> = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <span className="pl-[42vw]">
+          <span className="pl-[44vw]">
             <ModeToggle />
           </span>
 

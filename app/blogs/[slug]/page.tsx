@@ -42,10 +42,11 @@ export default function Page({ params } :any){
 
 <div className='flex'>
 <Link href='/'>
-<Button className='bg-white text-gray-800 border hover:text-white'><ChevronLeft />see all posts</Button>
+<Button className='bg-white text-gray-800 border hover:text-white'><ChevronLeft />see all notes</Button>
 </Link>
 <p className='flex gap-2 pl-8 md:pl-48 text-sm pt-2 text-gray-600'><Clock10 className='text-blue-400 text-sm' /> 7 min read .</p>
 </div>
+<p className='p-3 font-serif text-gray-500'>{props.fontMatter.date}</p>
         <article className='prose dark:!prose-invert mt-16 md:mt-4'>
 
             <h1>{props.fontMatter.title}</h1>
