@@ -35,7 +35,7 @@ const page: FunctionComponent<pageProps> = () => {
       <main className='flex flex-col min-h-screen'>
    
     <section className='py-1'>
-   <h3 className='text-2xl'> &lt;Dipak  props=&#123;notes &#125;/ &gt;</h3>
+   <h3 className='text-2xl text-slate-950'> &lt;Dipak  props=&#123;notes &#125; / &gt;</h3>
 <Search/>
     <div className='p-2 flex flex-wrap md:flex-nowrap'>
       {blogs.map(blog =>(

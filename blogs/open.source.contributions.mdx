@@ -2,7 +2,7 @@
 image: "https://paulonteri.com/images/thoughts/YuA84Bmyj.jpeg"
 title: "Getting Started with Open Source Contribution"
 date: "Feb 9 2024"
-author: "Dipak Khade"
+description: "Dipak Khade"
 ---
 
 
@@ -50,3 +50,27 @@ git push origin <branch-name>
 ```
 
 ## step 8: make a pull request i.e PR 
+now you can make a pull req from branch of forked repo in which you make changes to the main branch of original repo
+
+## step 9 : advanced
+As many more contributors may work on the same project  
+you have to make a sync between the your code and the code of main repo from which you make a fork for this you have to make a upstream 
+```
+git remote add upstream <url_of_main_repo>
+```
+now you can pull the changes from upstream 
+```
+git pull upstream main
+```
+
+since you are working in a branch 
+you have to merger this chanes to your main branch 
+```
+git merge <branch_name>
+```
+push that changes to your forked repo which had a origin 
+```
+git push 
+```
+#### now your local machine code , your fork and original Repository will bw in the sync
+you can follow similar cycle to make more contributions
