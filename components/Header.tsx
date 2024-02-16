@@ -12,7 +12,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import MaxWidthWrapper from "./MaxWidthWrapper";
 import AuthButton from "./AuthButton";
 
 interface HeaderProps {}
@@ -35,7 +34,7 @@ const Header: FC<HeaderProps> = () => {
             <Link href={"/"}>Contact</Link>
           </li>
           <ModeToggle />
-          <div className="ml-20">
+          <div className="ml-48">
             <AuthButton />
           </div>
         </ol>

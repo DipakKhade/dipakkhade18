@@ -7,7 +7,8 @@ interface NewsLatterProps {
  
 const NewsLatter: FC<NewsLatterProps> = () => {
     return ( <>
-     <div className="h-auto sm:h-auto transition-height rounded-md sm:rounded-3xl px-4 sm:px-8 py-6 sm:py-9 duration-500 shadow-lg bg-gradient-to-br from-sky-500 to-indigo-500">
+    
+     <div className="h-auto sm:h-auto transition-height rounded-md sm:rounded-3xl px-4 sm:px-8 py-6 sm:py-9 duration-500 shadow-lg bg-gradient-to-br from-sky-500 to-indigo-500 p-1 w-full lg:max-w-4xl">
           <div className="mb-5 text-white">
             <p className="text-xl font-bold">Subscribe to my newsletter</p>
             <p className="text-sm text-gray-600">Get updates on new notes</p>

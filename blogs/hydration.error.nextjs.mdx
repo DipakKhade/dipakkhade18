@@ -1,0 +1,22 @@
+---
+image: "https://miro.medium.com/v2/resize:fit:1200/1*AZ6LC3tYnWpmS8sPp4ZcwA.png"
+title: "hydration error : a conflict between server side and client side renders"
+date: "Feb 16 2024"
+description: "Dipak Khade"
+readtime: 2 min
+---
+
+## what is hydration error:
+the term "hydration error" typically refers to issues related to the hydration process during server-side rendering (SSR) or static site generation (SSG). Hydration is the process of attaching event listeners and making client-side updates to a page that was initially rendered on the server.
+
+## solution :
+You can make a page dynamic so that according to rqquirment the page can render on server as well as on client side
+
+make this changes in your functional component 
+```
+import dynamic from "next/dynamic";
+```
+
+```
+export default dynamic (() => Promise.resolve(Navbar), {ssr: false})
+```

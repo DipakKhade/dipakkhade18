@@ -12,7 +12,7 @@ const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dipak Khade",
-  description: "Projext to store notes , coded in Next.js ",
+  description: "Project to store notes , coded in Next.js ",
 };
 
 export default function RootLayout({
