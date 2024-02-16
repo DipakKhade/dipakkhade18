@@ -35,9 +35,9 @@ const page: FunctionComponent<pageProps> = () => {
     <>
       <main>
         <div className="flex p-1">
-        <h2 className="text-2xl font-bold">Hey, I'm  Dipak</h2><span className="text-blue-400 text-sm pl-4">/di.pək/</span>
+        <h2 className="text-2xl font-bold">Hey, I&apos;m  Dipak</h2><span className="text-blue-400 text-sm pl-4">/di.pək/</span>
         </div>
-        <p className="font-thin text-gray-600 p-1">I share what I've been working on recently and things I learned along the way.</p>
+        <p className="font-thin text-gray-600 p-1">I share what I&apos;ve been working on recently and things I learned along the way.</p>
         <Search/>
         <h4 className="p-4 text-xl font-semibold">Recent Notes</h4>
         <div className="flex flex-row flex-wrap gap-6">
