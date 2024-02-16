@@ -37,11 +37,7 @@ const page: FunctionComponent<pageProps> = () => {
         <div className="flex flex-row flex-wrap gap-6">
           {blogs.map((blog) => (
             <Link href={`/blogs/${blog.slug}`} passHref key={blog.slug}>
-              <div
-                className={cn(
-                  "rounded-lg border bg-white dark:bg-slate-700 dark:text-slate-900 hover:bg-slate-100 cursor-pointer object-center md:w-96"
-                )}
-              >
+              <div className="rounded-lg border bg-white dark:bg-slate-700 dark:text-slate-900 hover:bg-slate-100 cursor-pointer object-center md:w-96">
                 <div className="relative" style={{ paddingTop: "56.25%" }}>
                   <Image
                     src={blog.meta.image}
