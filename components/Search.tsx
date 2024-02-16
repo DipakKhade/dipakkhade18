@@ -18,7 +18,7 @@ function taostdiv(){
 const Search: FC<SearchProps> = () => {
   return ( 
     <>
-    <div className='flex gap-5 p-4'>
+    <div className='flex gap-5 p-4 w-full lg:max-w-4xl'>
 <Input placeholder='search notes'/>
 <Button
 onClick={() => toast(taostdiv())}

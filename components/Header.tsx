@@ -34,7 +34,7 @@ const Header: FC<HeaderProps> = () => {
             <Link href={"/"}>Contact</Link>
           </li>
           <ModeToggle />
-          <div className="ml-48">
+          <div className="ml-44">
             <AuthButton />
           </div>
         </ol>

@@ -34,10 +34,16 @@ const page: FunctionComponent<pageProps> = () => {
   return (
     <>
       <main>
+        <div className="flex p-1">
+        <h2 className="text-2xl font-bold">Hey, I'm  Dipak</h2><span className="text-blue-400 text-sm pl-4">/di.pək/</span>
+        </div>
+        <p className="font-thin text-gray-600 p-1">I share what I've been working on recently and things I learned along the way.</p>
+        <Search/>
+        <h4 className="p-4 text-xl font-semibold">Recent Notes</h4>
         <div className="flex flex-row flex-wrap gap-6">
           {blogs.map((blog) => (
             <Link href={`/blogs/${blog.slug}`} passHref key={blog.slug}>
-              <div className="rounded-lg border bg-white dark:bg-slate-700 dark:text-slate-900 hover:bg-slate-100 cursor-pointer object-center md:w-96">
+              <div className="rounded-lg border  dark:bg-black cursor-pointer object-center md:w-96">
                 <div className="relative" style={{ paddingTop: "56.25%" }}>
                   <Image
                     src={blog.meta.image}
@@ -45,6 +51,7 @@ const page: FunctionComponent<pageProps> = () => {
                     layout="fill"
                     objectFit="cover"
                     className="rounded-t-lg"
+                    
                   />
                 </div>
                 <div className="p-3">
