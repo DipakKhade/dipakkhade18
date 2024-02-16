@@ -2,6 +2,7 @@ import { Github, Linkedin, Twitter } from "lucide-react";
 import { FC } from "react";
 import NewsLatter from "./NewsLatter";
 import Link from "next/link";
+import { siteConfig } from "@/lib/siteConfig";
 interface FooterProps {}
 
 const Footer: FC<FooterProps> = () => {
@@ -24,7 +25,7 @@ const Footer: FC<FooterProps> = () => {
 				Built by @DipakKhade. Hosted on Vercel. The source code is available on{" "}
 				<a
 					className="underline"
-					href="https://github.com/DipakKhade/dipakkhade18"
+					href={siteConfig.links.github}
 				>
 					GitHub.
 				</a>{" "}

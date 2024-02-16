@@ -1,18 +1,53 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Inter as FontSans } from "next/font/google"
+import localFont from "next/font/local"
 import "./globals.css";
 import Header from "@/components/Header";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 import { NextAuthProvider } from "./AuthProvider";
-import { Toaster, toast } from 'sonner'
+import { Toaster } from 'sonner'
 import NextTopLoader from 'nextjs-toploader';
-const roboto = Roboto({ weight: "400", subsets: ["latin"] });
+import { siteConfig } from "@/lib/siteConfig";
+import { cn } from "@/lib/utils";
 
+//font
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
+const fontHeading = localFont({
+  src: "../assets/fonts/CalSans-SemiBold.woff2",
+  variable: "--font-heading",
+})
+
+//meta data
 export const metadata: Metadata = {
-  title: "Dipak Khade",
-  description: "Project to store notes , coded in Next.js ",
+  title: {
+    default:siteConfig.name,
+    template:`%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Server Components",
+  ],
+  authors:[
+    {
+      name:'Dipak Khade',
+      url:'https://dipakkhade-dev.vercel.app/'
+    },
+
+    
+  ],
+  creator:'Dipak Khade',
+
+
+
 };
 
 export default function RootLayout({
@@ -22,7 +57,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={cn(fontSans.variable,
+          fontHeading.variable)}>
         <MaxWidthWrapper>
           <NextAuthProvider>
           <ThemeProvider

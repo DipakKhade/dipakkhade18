@@ -28,10 +28,10 @@ const Header: FC<HeaderProps> = () => {
             <Link href={"/"}>Home</Link>
           </li>
           <li className="hover:text-blue-500 cursor-pointer pt-2">
-            <Link href={"/"}>About</Link>
+            <Link href={"/https://dipakkhade-dev.vercel.app/"}>About</Link>
           </li>
           <li className="hover:text-blue-500 cursor-pointer pt-2">
-            <Link href={"/"}>Contact</Link>
+            <Link href={"/https://dipakkhade-dev.vercel.app/contact"}>Contact</Link>
           </li>
           <ModeToggle />
           <div className="ml-44">
@@ -51,8 +51,8 @@ const Header: FC<HeaderProps> = () => {
               </DropdownMenuItem>
 
               <DropdownMenuSeparator />
-              <DropdownMenuItem>About</DropdownMenuItem>
-              <DropdownMenuItem>Contact</DropdownMenuItem>
+              <DropdownMenuItem><Link href={'https://dipakkhade-dev.vercel.app/'}>About</Link></DropdownMenuItem>
+              <DropdownMenuItem><Link href={'https://dipakkhade-dev.vercel.app/contact'}>Contact</Link></DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 

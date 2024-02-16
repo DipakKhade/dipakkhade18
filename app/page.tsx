@@ -6,7 +6,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import Image from "next/image";
 import Search from "@/components/Search";
-import cn from "@/components/cn";
+import { formatDate } from "@/lib/utils";
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
@@ -33,38 +33,47 @@ const page: FunctionComponent<pageProps> = () => {
 
   return (
     <>
-      <main>
-        <div className="flex p-1">
-        <h2 className="text-2xl font-bold">Hey, I&apos;m  Dipak</h2><span className="text-blue-400 text-sm pl-4">/di.pək/</span>
-        </div>
-        <p className="font-thin text-gray-600 p-1">I share what I&apos;ve been working on recently and things I learned along the way.</p>
-        <Search/>
-        <h4 className="p-4 text-xl font-semibold">Recent Notes</h4>
-        <div className="flex flex-row flex-wrap gap-6">
-          {blogs.map((blog) => (
-            <Link href={`/blogs/${blog.slug}`} passHref key={blog.slug}>
-              <div className="rounded-lg border  dark:bg-black cursor-pointer object-center md:w-96">
-                <div className="relative" style={{ paddingTop: "56.25%" }}>
-                  <Image
-                    src={blog.meta.image}
-                    alt="img"
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-t-lg"
-                    
-                  />
-                </div>
-                <div className="p-3">
-                  <h3 className="flex">{blog.meta.title}</h3>
-                  <div className="text-gray-500">
-                    {blog.meta.description} <p>{blog.meta.date}</p>
-                  </div>
-                </div>
+     {
+      blogs?.length ?  <main>
+      <div className="flex p-1">
+      <h2 className="text-2xl font-bold">Hey, I&apos;m  Dipak</h2><span className="text-blue-400 text-sm pl-4">/di.pək/</span>
+      </div>
+      <p className="font-thin text-gray-600 p-1">I share what I&apos;ve been working on recently and things I learned along the way.</p>
+      <Search/>
+      <h4 className="text-xl text-muted-foreground p-4">Recent Notes</h4>
+      <div className="flex flex-row flex-wrap gap-6">
+        {blogs.map((blog) => (
+          <Link href={`/blogs/${blog.slug}`} passHref key={blog.slug}>
+            <div className="rounded-lg dark:bg-black cursor-pointer object-center md:w-96">
+              <div className="relative" style={{ paddingTop: "56.25%" }}>
+                <Image
+                  src={blog.meta.image}
+                  alt="img"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-t-lg border"
+                  
+                />
               </div>
-            </Link>
-          ))}
-        </div>
-      </main>
+              <div className="p-3">
+              <h2 className="text-2xl font-extrabold">{blog.meta.title}</h2>
+            {blog.meta.description && (
+              <p className="text-muted-foreground">{blog.meta.description}</p>
+            )}
+            {blog.meta.date && (
+              <p className="text-sm text-muted-foreground">
+               { blog.meta.date}
+              </p>
+            )}
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </main>  :(
+       <p>No posts published.</p>
+    )
+     }
     </>
   );
 };
