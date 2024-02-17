@@ -11,7 +11,6 @@ import { Toaster } from 'sonner'
 import NextTopLoader from 'nextjs-toploader';
 import { siteConfig } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
-
 //font
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -57,6 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
       <body className={cn(fontSans.variable,
           fontHeading.variable)}>
         <MaxWidthWrapper>
@@ -69,7 +69,7 @@ export default function RootLayout({
           >
             <Header />
             <main className="mt-24">
-            <NextTopLoader color="#2563EB" height={2}/>
+            <NextTopLoader color="#000000" height={2}/>
               {children}
               </main>
             <Toaster />
@@ -79,6 +79,7 @@ export default function RootLayout({
           </NextAuthProvider>
         </MaxWidthWrapper>
       </body>
+     
     </html>
   );
 }

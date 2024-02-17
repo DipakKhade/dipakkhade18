@@ -34,7 +34,7 @@ const Header: FC<HeaderProps> = () => {
             <Link href={"/https://dipakkhade-dev.vercel.app/contact"}>Contact</Link>
           </li>
           <ModeToggle />
-          <div className="ml-44">
+          <div className="md:ml-40 lg:ml-64">
             <AuthButton />
           </div>
         </ol>

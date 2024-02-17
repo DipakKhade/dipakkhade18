@@ -6,8 +6,10 @@ description: "Dipak Khade"
 readtime : 4 min
 ---
 
+
 The Context API in React is a feature that allows you to manage state at a global level within your application. It provides a way to pass data through the component tree without having to pass props down manually at every level. This can be particularly useful for passing data that is needed by many components in your application.
 The Context API consists of two main components:
+
 
 #### Context Provider: 
 This component wraps your application and provides the data that you want to make available to all components in the tree below it. It accepts a value prop which is the data that will be shared.
@@ -26,7 +28,7 @@ import { createContext } from "react";
 export const nameContext = createContext('Dipaks')
 ```
 
-### wrap your i=entire application inside the context Provider
+wrap your entire application inside the context Provider
 ##### App.jsx
 ```
 import "./App.css";
