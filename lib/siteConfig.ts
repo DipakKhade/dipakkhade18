@@ -1,6 +1,6 @@
 
 export const siteConfig={
-    name : 'Dipak-notes',
+    name : 'Notes | Dipak Khade',
     description:"Project to store notes , coded in Next.js ",
     url:'https://dipakkhade.vercel.app/',
     links:{

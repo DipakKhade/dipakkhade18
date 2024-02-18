@@ -28,10 +28,10 @@ const Header: FC<HeaderProps> = () => {
             <Link href={"/"}>Home</Link>
           </li>
           <li className="hover:text-blue-500 cursor-pointer pt-2 ml-6">
-            <Link href={"/https://dipakkhade-dev.vercel.app/"}>About</Link>
+            <Link href={"https://dipakkhade-dev.vercel.app/"}>About</Link>
           </li>
           <li className="hover:text-blue-500 cursor-pointer pt-2 ml-8">
-            <Link href={"/https://dipakkhade-dev.vercel.app/contact"}>Contact</Link>
+            <Link href={"https://dipakkhade-dev.vercel.app/contact"}>Contact</Link>
           </li>
           <div className="md:ml-40 lg:ml-48 flex gap-4">
           <ModeToggle />

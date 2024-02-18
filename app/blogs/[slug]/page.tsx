@@ -53,7 +53,9 @@ export default function Page({ params }: any) {
       <article className="prose dark:!prose-invert mt-16 md:mt-4 leading-7 [&:not(:first-child)]:mt-6">
         <h1>{props.fontMatter.title}</h1>
         <Image src={props.fontMatter.image} alt="" width={600} height={300} />
+        <div className="md:w-[50vw]">
         <MDXRemote source={props.content} />
+        </div>
       </article>
     </main>
   );
