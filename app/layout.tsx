@@ -69,7 +69,7 @@ export default function RootLayout({
           >
             <Header />
             <main className="mt-24">
-            <NextTopLoader color="#000000" height={2}/>
+            <NextTopLoader color="#000000" height={1}/>
               {children}
               </main>
             <Toaster />

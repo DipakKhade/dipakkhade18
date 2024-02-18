@@ -36,7 +36,7 @@ export default function Page({ params }: any) {
   const props = getPost(params);
   // console.log(props)
   return (
-    <main className="p-3 md:p-8">
+    <main className="p-3 md:p-8 lg:pl-32">
       <div className="flex">
         <Link href="/">
           <Button className="bg-white text-gray-800 border hover:text-white">

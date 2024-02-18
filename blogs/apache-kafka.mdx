@@ -1,0 +1,56 @@
+---
+image: "https://editor.analyticsvidhya.com/uploads/92687what-is-kafka%20(1).png"
+title: "Apache Kafka : an open-source distributed event streaming platform"
+date: "Feb 18 2024"
+description: "Dipak Khade"
+readtime : 5 min
+---
+
+### Problem :
+consider a application which deals with a real time communication such as a messanging app or a app which track the live orders such as flipkart and amazon .
+so for tracking the order we require a data to be transmited to a user / consumer
+let us consider a example of Zomato , if we place a order we get a option to track that order ,from the perspective of developer to get that info  about the order location we require to insert  a location data for every 1 second in database, since there were millions of orders are plcaed through zomato , the database of zomato 
+crash since the "throughput" of database to perform a ops (operations per second) is less.
+
+### solution : Apache Kafka
+
+Apache Kafka has a high throughput , hence it can insert larger number of data points to its database.
+but the drawback of Kafka is that it has a temporary memory , hence the solution to our problem is that using the combition of database and Kafka 
+
+## Getting started with Apache Kafka
+
+Apache Kafka operates on a few key concepts that are fundamental to understanding its architecture and functionality. Two of the most basic concepts are topics and partitions:
+
+#### Topics:
+Topics in Kafka represent streams of records, which are essentially messages or pieces of data. They serve as the central organizing mechanism for data within Kafka.
+A topic is identified by its name and can be thought of as a category or feed name to which records are published.
+Producers (applications that produce data) write data to Kafka topics, and consumers (applications that consume data) read data from these topics.
+Topics are often organized around specific themes or types of data, allowing for logical separation and scalability in data processing.
+Topics can be configured with various settings such as the number of partitions, replication factor, and retention policy.
+
+#### Partitions:
+
+Partitions are the individual segments or shards of a topic's data. Each partition is an ordered and immutable sequence of records.
+When a topic is created, you can specify the number of partitions it should have. This allows for parallelism and scalability in data processing.
+Each message within a partition is assigned a unique offset, which serves as its identifier within that partition.
+Partitions allow Kafka to distribute and parallelize the data across multiple brokers (servers) in a Kafka cluster.
+Consumers read data from partitions in parallel, allowing for high throughput and efficient processing of large volumes of data.
+The number of partitions in a topic affects the maximum parallelism and throughput achievable for consuming and producing data.
+
+
+kafka internally use the zookeeper
+
+we run zookeeper image using  a docker 
+Start Zookeper Container and expose PORT 2181
+
+```
+docker run -p 2181:2181 zookeeper
+```
+
+Start Kafka Container, expose PORT 9092 and setup ENV variables.
+replace 192.168.0.129 with your computer ip address
+```
+ docker run -p 9092:9092 -e KAFKA_ZOOKEEPER_CONNECT=192.168.0.129:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.0.129:9092 -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1  confluentinc/cp-kafka 
+```
+
+##### further we can reffer to kafkajs  [MDX]( https://kafka.js.org/docs/getting-started "title") docs

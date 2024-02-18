@@ -34,17 +34,17 @@ const page: FunctionComponent<pageProps> = () => {
   return (
     <>
      {
-      blogs?.length ?  <main>
+      blogs?.length ?  <main className="md:pl-12">
       <div className="flex p-1">
       <h2 className="text-2xl font-bold">Hey, I&apos;m  Dipak</h2><span className="text-blue-400 text-sm pl-4">/di.pək/</span>
       </div>
-      <p className="font-thin text-gray-600 p-1">I share what I&apos;ve been working on recently and things I learned along the way.</p>
+      <p className="font-thin text-gray-600 p-1 dark:text-slate-100">I share what I&apos;ve been working on recently and things I learned along the way.</p>
       <Search/>
       <h4 className="text-xl text-muted-foreground p-4">Recent Notes</h4>
-      <div className="flex flex-row flex-wrap gap-6">
+      <div className="flex flex-row flex-wrap gap-6 lg:pl-16">
         {blogs.map((blog) => (
           <Link href={`/blogs/${blog.slug}`} passHref key={blog.slug}>
-            <div className="rounded-lg dark:bg-black cursor-pointer object-center md:w-96">
+            <div className="rounded-lg cursor-pointer object-center md:w-96">
               <div className="relative" style={{ paddingTop: "56.25%" }}>
                 <Image
                   src={blog.meta.image}

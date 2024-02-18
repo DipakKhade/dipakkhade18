@@ -20,21 +20,21 @@ const Header: FC<HeaderProps> = () => {
   return (
     <>
       <nav className="fixed top-0 mx-auto w-full md:max-w-screen-md md:px-20 lg:max-w-4xl bg-light/80 backdrop-blur-md z-50">
-        <ol className="hidden sm:flex gap-14 p-6 text-md font-medium">
+        <ol className="hidden sm:flex gap-12 p-6 text-md font-medium">
           <Link href={"/"}>
-            <Image src={logo} alt="logo" className="w-12 rounded-md fixed left-2" />
+            <Image src={logo} alt="logo" className="w-12 rounded-md fixed left-24" />
           </Link>
-          <li className="hover:text-blue-500 cursor-pointer pt-2">
+          <li className="text-blue-500 cursor-pointer pt-2 ml-20">
             <Link href={"/"}>Home</Link>
           </li>
-          <li className="hover:text-blue-500 cursor-pointer pt-2">
+          <li className="hover:text-blue-500 cursor-pointer pt-2 ml-6">
             <Link href={"/https://dipakkhade-dev.vercel.app/"}>About</Link>
           </li>
-          <li className="hover:text-blue-500 cursor-pointer pt-2">
+          <li className="hover:text-blue-500 cursor-pointer pt-2 ml-8">
             <Link href={"/https://dipakkhade-dev.vercel.app/contact"}>Contact</Link>
           </li>
+          <div className="md:ml-40 lg:ml-48 flex gap-4">
           <ModeToggle />
-          <div className="md:ml-40 lg:ml-64">
             <AuthButton />
           </div>
         </ol>
