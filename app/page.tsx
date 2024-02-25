@@ -41,19 +41,21 @@ const page: FunctionComponent<pageProps> = () => {
           <div className="flex flex-col items-center justify-center h-[15rem]">
           <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base">
       &lt;Dipak Khade /&gt;
-      </p>
             <span className="text-blue-400 text-sm pl-4">/di.pək/</span>
-            <p className="font-thin text-gray-600 p-1 dark:text-slate-100">
+      </p>
+            <p className="font-thin text-gray-600 p-4 dark:text-slate-100">
             I share what I&apos;ve been working on recently and things I learned
             along the way.
           </p>
           <Link href={'https://dipakcodesnippets.vercel.app/'} >
 
-     <Button className='dark:bg-blue-300 gap-1 p-3 mt-2'>Code Snippets <FaArrowRightLong className="text-xl"/></Button>
+     <Button className='dark:bg-slate-100 gap-1 p-3 mt-2'>Code Snippets <FaArrowRightLong className="text-xl"/></Button>
      </Link>
           </div>
-         
+         <div className="sm:hidden">
+
           <Search />
+         </div>
           <h4 className="text-xl text-muted-foreground p-4">Recent Notes</h4>
           <div className="flex flex-row flex-wrap gap-6 lg:pl-16">
             {blogs.map((blog) => (

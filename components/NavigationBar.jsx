@@ -5,7 +5,8 @@ import { MoonIcon, SunIcon, DribbbleIcon } from "../lib/Icons";
 import { useThemeSwitch } from "../lib/useThemeSwitch";
 import { cx } from "../lib/cx";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu} from "lucide-react";
+import Search from "./Search";
 import AuthButton from "./AuthButton";
 import {
   DropdownMenu,
@@ -25,7 +26,7 @@ function NavigationBar() {
     <>
       <header>
      
-      <nav className="sm:flex border gap-6 justify-end backdrop-blur-sm z-50 hidden p-6 top-0 rounded-sm ">
+      <nav className="sm:flex border gap-6  backdrop-blur-sm z-50 hidden p-6 top-0 rounded-sm ">
       <div className="mt-2 flex gap-12 ml-24">
         <Link href="/" className="mr-2  hover:text-blue-600 hover:underline">
          Home
@@ -62,7 +63,8 @@ function NavigationBar() {
 <Button>sign up</Button>
 
         </Link>
-
+        <p className="w-12"></p>
+<Search/>
       </nav>
 
 
@@ -99,7 +101,10 @@ function NavigationBar() {
             <ModeToggle />
           </span>
 
-          <AuthButton />
+          <Link href={'/signup'}>
+<Button>sign up</Button>
+
+        </Link>
         </div>
       </nav>
       </header>

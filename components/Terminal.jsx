@@ -63,7 +63,7 @@ const Terminal = () => {
 
   return (
     <TerminalContextProvider>
-      <div className="border border-blue-700 w-[85vw] md:w-[70vw] m-auto dark:bg-slate-950 rounded-sm h-80 overflow-y-hidden mb-4">
+      <div className="border border-blue-700 w-full md:w-[70vw] m-auto dark:bg-slate-950 rounded-sm h-80 overflow-y-hidden mb-4">
         <ReactTerminal
           prompt={
             data && data.user ? (
