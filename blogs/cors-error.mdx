@@ -1,0 +1,81 @@
+---
+image: "https://simplelocalize.io/blog/what-is-cors.jpg"
+title: "CORS : Cross-Origin Resource Sharing"
+date: "Feb 25 2024"
+description: "Dipak Khade"
+readtime: 5 min
+---
+
+"CORS" stands for Cross-Origin Resource Sharing. It's a security feature implemented by web browsers to prevent scripts running on one origin (domain) from accessing resources on another origin, unless specifically allowed.
+
+When a web application hosted on one domain tries to make an HTTP request to a different domain (cross-origin request), the browser, by default, blocks the request to prevent potential security vulnerabilities like cross-site scripting attacks. However, there are legitimate use cases where such cross-origin requests are necessary, such as when a web application needs to fetch data from an API hosted on a different domain.
+
+To enable these cross-origin requests, the server hosting the requested resource needs to include specific CORS headers in its HTTP response. These headers indicate to the browser that it's safe to allow the request from a different origin.
+
+The main CORS headers are:
+
+### Access-Control-Allow-Origin:
+ Specifies which origins are allowed to access the resource. It can be a specific origin, "*", or null.
+### Access-Control-Allow-Methods:
+ Specifies the HTTP methods (e.g., GET, POST, PUT) allowed when accessing the resource.
+### Access-Control-Allow-Headers:
+ Specifies which headers can be used in the actual request.
+### Access-Control-Allow-Credentials:
+ Indicates whether the browser should include credentials (like cookies or HTTP authentication) when making the request.
+### Access-Control-Expose-Headers:
+ Specifies which headers are safe to expose to the requesting script.
+If the server doesn't include these headers, or if they are set incorrectly, the browser will block the request, and you'll see a CORS error in the browser's console. This error typically indicates that the requested resource is not configured to allow cross-origin requests from the domain where the script is running.### 
+
+
+### solving cors error in express
+
+To remove CORS errors in an Express.js application, you need to configure CORS middleware. Express.js does not include CORS support by default, so you'll need to use a package like cors to handle CORS headers. Here's how you can do it:
+
+First, install the cors package using npm or yarn:
+```
+npm install cors
+```
+Then, in your Express application code, you'll use the cors middleware. Here's an example of how you can set it up:
+
+```
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+// Use CORS middleware
+app.use(cors());
+
+// Other middleware and routes
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Your routes and other middleware setup
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+```
+
+By adding app.use(cors()), you're enabling CORS for all routes in your Express application. This setup allows requests from any origin to access your server's resources.
+
+You can also configure CORS to allow requests only from specific origins, or to allow certain HTTP methods or headers. For example:
+
+```
+const corsOptions = {
+  origin: 'http://example.com',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
+
+```
+In this example, requests will only be allowed from http://example.com, and only the specified HTTP methods will be allowed.
