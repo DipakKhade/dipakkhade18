@@ -3,7 +3,7 @@ image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5OVg8Rn64TfpARVXG7
 title: Getting Started with Prisma and prisma client in Next.js 14
 date: Feb 9, 2024
 description: Dipak Khade
-readtime : 6 min
+readtime: 6 min
 ---
 
 Prisma is a modern database toolkit that makes it easy to work with databases in your Next.js applications. In this note, we'll go through the steps to integrate Prisma into a Next.js 14 project and perform basic database operations.
@@ -69,12 +69,15 @@ model todos {
 ## Step 5 : prisma generator
 
 this will under the hood hood create the schema for mongodb
+
 ```
 prisma generate
 ```
 
-## Step 6 : export prisma 
+## Step 6 : export prisma
+
 make file prisma.ts in lib and export the prisma function as follows:
+
 ```
 import { PrismaClient } from '@prisma/client'
 
@@ -94,7 +97,9 @@ if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma
 ```
 
 ## step 5 : read and write into database via prisma client
-make a file lib/index.ts to export the functions that communicates to database 
+
+make a file lib/index.ts to export the functions that communicates to database
+
 ```
 import prisma from "./prisma";
 
@@ -119,7 +124,8 @@ export async function createTodo(title: string) {
 }
 ```
 
-## step 6 : get data in frontend 
+## step 6 : get data in frontend
+
 we use the above exported function to get the data from databse and map the data as we want
 
 ```
@@ -127,13 +133,13 @@ import { FunctionComponent } from "react";
 import { getTodos } from "@/lib/todo";
 
 interface TodoItemProps {
-    
+
 }
- 
+
 const TodoItem: FunctionComponent<TodoItemProps> =async () => {
     const {todos} =await getTodos()
     return ( <>
-    
+
     <div>
     {
     todos?.map((todo,index)=>(
@@ -144,11 +150,10 @@ const TodoItem: FunctionComponent<TodoItemProps> =async () => {
 
     </> );
 }
- 
+
 export default TodoItem;
 ```
+
 ## Conclusion
 
- You've successfully integrated Prisma into your Next.js 14 project. Now you can perform database operations using Prisma's powerful features.
-
-
+You've successfully integrated Prisma into your Next.js 14 project. Now you can perform database operations using Prisma's powerful features.

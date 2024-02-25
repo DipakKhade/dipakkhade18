@@ -1,31 +1,29 @@
-'use client';
+"use client";
 import { FC } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { toast } from 'sonner'
+import { toast } from "sonner";
 import { Divide } from "lucide-react";
-interface SearchProps {
-  
+interface SearchProps {}
+
+function taostdiv() {
+  return (
+    <div>
+      <h5 className="font-semibold">Not implemented</h5>
+      <p>i&apos;m still working on the search</p>
+    </div>
+  );
 }
 
-function taostdiv(){
-  return (<div>
-    <h5 className="font-semibold">Not implemented</h5>
-    <p>i&apos;m still working on the search</p>
-    </div>)
-}
- 
 const Search: FC<SearchProps> = () => {
-  return ( 
+  return (
     <>
-    <div className='flex gap-5 p-4 w-full lg:max-w-4xl'>
-<Input placeholder='search notes'/>
-<Button
-onClick={() => toast(taostdiv())}
->search</Button>
-</div>
+      <div className="flex gap-5 p-4 w-full lg:max-w-4xl">
+        <Input placeholder="search notes" />
+        <Button onClick={() => toast(taostdiv())}>search</Button>
+      </div>
     </>
-   );
-}
- 
+  );
+};
+
 export default Search;

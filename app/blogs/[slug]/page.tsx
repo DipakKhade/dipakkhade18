@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 function getPost({ slug }: { slug: string }) {
   const markdownFile = fs.readFileSync(
     path.join("blogs", slug + ".mdx"),
-    "utf-8"
+    "utf-8",
   );
 
   const { data: fontMatter, content } = matter(markdownFile);
@@ -54,7 +54,7 @@ export default function Page({ params }: any) {
         <h1>{props.fontMatter.title}</h1>
         <Image src={props.fontMatter.image} alt="" width={600} height={300} />
         <div className="md:w-[50vw]">
-        <MDXRemote source={props.content} />
+          <MDXRemote source={props.content} />
         </div>
       </article>
     </main>

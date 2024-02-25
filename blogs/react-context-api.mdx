@@ -3,25 +3,28 @@ image: "https://miro.medium.com/v2/resize:fit:1400/1*_BYc7SLnX7PStfocFvH2Ow.jpeg
 title: "React context API : No More Props drilling through components !"
 date: "Feb 17 2024"
 description: "Dipak Khade"
-readtime : 4 min
+readtime: 4 min
 ---
-
 
 The Context API in React is a feature that allows you to manage state at a global level within your application. It provides a way to pass data through the component tree without having to pass props down manually at every level. This can be particularly useful for passing data that is needed by many components in your application.
 The Context API consists of two main components:
 
+#### Context Provider:
 
-#### Context Provider: 
 This component wraps your application and provides the data that you want to make available to all components in the tree below it. It accepts a value prop which is the data that will be shared.
 
 #### Context Consumer:
+
 This component allows individual components to subscribe to the context and access the data provided by the Context Provider.
 
 Here's a basic example of how you might use the Context API in React:
 
 ### make a folder which contains context files , say context.js
-make a context of variable 
+
+make a context of variable
+
 ##### context.js
+
 ```
 import { createContext } from "react";
 
@@ -29,7 +32,9 @@ export const nameContext = createContext('Dipaks')
 ```
 
 wrap your entire application inside the context Provider
+
 ##### App.jsx
+
 ```
 import "./App.css";
 import { useState } from "react";
@@ -59,10 +64,12 @@ export default App;
 ```
 
 now you can access this value in any component,now matter how nested it is .
-suppose we want to get this value inside a Navbar component 
+suppose we want to get this value inside a Navbar component
 
 #### Navbar.jsx
+
 for this we use useContext
+
 ```
 import React, { useContext } from "react";
 import { nameContext } from "../context/context";

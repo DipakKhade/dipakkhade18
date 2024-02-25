@@ -3,9 +3,8 @@ image: "https://paulonteri.com/images/thoughts/YuA84Bmyj.jpeg"
 title: "Getting Started with Open Source Contribution"
 date: "Feb 12 2024"
 description: "Dipak Khade"
-readtime : 7 min
+readtime: 7 min
 ---
-
 
 Contributing to open source projects is a fantastic way to learn, collaborate, and give back to the community. If you're new to open source, it can seem daunting at first, but fear not! This guide will walk you through making your first contribution using Git.
 
@@ -30,6 +29,7 @@ Create a new branch to work on your contribution. This keeps your changes isolat
 ```
 git checkout -b <branch-name>
 ```
+
 ## Step 5: Make Changes
 
 Make the necessary changes to the codebase to address the issue you found. Remember to follow the project's coding standards and guidelines.
@@ -42,6 +42,7 @@ Once you've made your changes, commit them to your local repository with a descr
 git add .
 git commit -m "Brief description of your changes"
 ```
+
 ## Step 7: Push Changes
 
 Push your changes to your forked repository on GitHub.
@@ -50,30 +51,38 @@ Push your changes to your forked repository on GitHub.
 git push origin <branch-name>
 ```
 
-## step 8: make a pull request i.e PR 
+## step 8: make a pull request i.e PR
+
 now you can make a pull req from branch of forked repo in which you make changes to the main branch of original repo
 
 ## step 9 : advanced
+
 As many more contributors may work on the same project  
-you have to make a sync between the your code and the code of main repo from which you make a fork for this you have to make a upstream 
+you have to make a sync between the your code and the code of main repo from which you make a fork for this you have to make a upstream
+
 ```
 git remote add upstream <url_of_main_repo>
 ```
-now you can pull the changes from upstream 
+
+now you can pull the changes from upstream
+
 ```
 git pull upstream main
 ```
 
-since you are working in a branch 
-you have to merger this chanes to your main branch 
+since you are working in a branch
+you have to merger this chanes to your main branch
+
 ```
 git merge <branch_name>
 ```
-push that changes to your forked repo which had a origin 
+
+push that changes to your forked repo which had a origin
+
 ```
-git push 
+git push
 ```
+
 #### now your local machine code , your fork and original Repository will bw in the sync
+
 you can follow similar cycle to make more contributions
-
-

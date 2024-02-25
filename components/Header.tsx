@@ -1,3 +1,9 @@
+
+
+//old Header
+
+
+
 import { FC } from "react";
 import { ModeToggle } from "./Theme-toggle-Button";
 import { Button } from "./ui/button";
@@ -22,7 +28,11 @@ const Header: FC<HeaderProps> = () => {
       <nav className="fixed top-1 mx-auto w-full md:max-w-screen-md md:px-20 lg:max-w-4xl bg-light/80 backdrop-blur-md z-50">
         <ol className="hidden sm:flex gap-12 p-6 text-md font-medium">
           <Link href={"/"}>
-            <Image src={logo} alt="logo" className="w-12 rounded-md fixed left-24" />
+            <Image
+              src={logo}
+              alt="logo"
+              className="w-12 rounded-md fixed left-24"
+            />
           </Link>
           <li className="text-blue-500 cursor-pointer pt-2 ml-20">
             <Link href={"/"}>Home</Link>
@@ -34,11 +44,16 @@ const Header: FC<HeaderProps> = () => {
             <Link href={"https://dipakkhade-dev.vercel.app/"}>About</Link>
           </li>
           <li className="hover:text-blue-500 cursor-pointer pt-2 ml-8">
-            <Link href={"https://dipakkhade-dev.vercel.app/contact"}>Contact</Link>
+            <Link href={"https://dipakkhade-dev.vercel.app/contact"}>
+              Contact
+            </Link>
           </li>
-          <div className="md:ml-40 lg:ml-48 flex gap-4">
-          <ModeToggle />
+          <div className="md:ml-40 lg:ml-24 flex gap-4">
+            <ModeToggle />
             <AuthButton />
+            <Link href={"/signup"}>
+              <Button>sign up</Button>
+            </Link>
           </div>
         </ol>
 
@@ -54,9 +69,19 @@ const Header: FC<HeaderProps> = () => {
               </DropdownMenuItem>
 
               <DropdownMenuSeparator />
-              <DropdownMenuItem><Link href={'https://dipakcodesnippets.vercel.app/'}>Snippets</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link href={'https://dipakkhade-dev.vercel.app/'}>About</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link href={'https://dipakkhade-dev.vercel.app/contact'}>Contact</Link></DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"https://dipakcodesnippets.vercel.app/"}>
+                  Snippets
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"https://dipakkhade-dev.vercel.app/"}>About</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"https://dipakkhade-dev.vercel.app/contact"}>
+                  Contact
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 

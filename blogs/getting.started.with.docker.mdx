@@ -3,51 +3,65 @@ image: "https://accesto.com/blog/static/18c31d00e830e4818d2f40bb4b22256c/29007/d
 title: "Docker: Building, Shipping, and Running Applications Anywhere"
 date: "Feb 14 2024"
 description: "Dipak Khade"
-readtime : 5 min
+readtime: 5 min
 ---
 
 Nowadays Docker comes in two main flavors: Docker Engine and Docker Desktop. Engine is a daemon and CLI for Linux systems, whereas Desktop uses virtualization to provide a consistent Docker experience on Windows, Mac, and Linux. It includes a graphical interface for managing your containers, in addition to the docker CLI from Engine. Although this article focuses on the traditional CLI experience, all the actions you’ll see in the following sections can also be achieved using Desktop’s GUI.
 
 ### Installing Docker Engine on Ubuntu
+
 The following steps work for Ubuntu and similar distributions. First, make sure you’ve got all the prerequisite packages for the installation process:
+
 ```
 $ sudo apt-get update
 $ sudo apt-get install -y ca-certificates curl gnupg lsb-release
 ```
+
 This allows the apt package manager to verify the authenticity of Docker’s packages. Now add the repository to your package lists:
+
 ```
 $ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  ```
-  The command automatically selects the correct repository for your operating system version and processor architecture.
+```
+
+The command automatically selects the correct repository for your operating system version and processor architecture.
 
 Update your package lists to include the new repository:
 
 ```
 $ sudo apt-get update
 ```
+
 Finally, install the docker-ce, docker-ce-cli, and containerd packages:
+
 ```
 $ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 ```
+
 Complete the installation by adding yourself to the docker group. This allows you to run docker CLI commands without using sudo. Logout and back in again to apply this change.
+
 ```
 $ sudo groupadd docker
 $ sudo usermod -aG docker $USER
 ```
+
 ### Checking Docker Is Working
+
 Once you’ve installed Docker, you can check it’s working by starting a basic container. The hello-world image on Docker Hub is a good choice.
 
 Run the following command to start a container with the image:
+
 ```
 $ docker run hello-world:latest
 ```
+
 You should see output similar to the following:
-```
+
+````
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
-2db29710123e: Pull complete 
+2db29710123e: Pull complete
 Digest: sha256:c77be1d3a47d0caf71a82dd893ee61ce01f32fc758031a6ec4cf1389248bb833
 Status: Downloaded newer image for hello-world:latest
 
@@ -70,7 +84,7 @@ Your Docker installation is ready to use.
 ## Docker Basics
 Before you start properly using Docker, it’s important to understand the two main concepts you’ll encounter:
 
-#### Images : 
+#### Images :
 All containers are started from an image. The image defines the initial state of the container’s filesystem. It’s similar to the install media you’d use with traditional virtual machines. Prebuilt images are available in public repositories such as Docker Hub, including options for popular operating systems and applications.
 
 #### Containers :
@@ -78,3 +92,4 @@ A container is an instance of an image. It’s a running process independent of 
 
 Now you can begin confidently working with containers (running processes) and images, the reusable templates you start containers from.
 
+````
