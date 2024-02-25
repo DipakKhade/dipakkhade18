@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 import { NextAuthProvider } from "./AuthProvider";
@@ -11,7 +9,6 @@ import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 import { siteConfig } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
-import Provider from './Providers'
 import NavigationBar from '../components/NavigationBar'
 //font
 const fontSans = FontSans({
@@ -49,14 +46,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(fontSans.variable, fontHeading.variable)}>
-  <Provider>
-    <ThemeProvider>
+
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
 
   
           <NextAuthProvider>
     
               {/* <Header /> */}
-              <main className="bg-slate-50 dark:bg-[#121212]">
+              <main>
               <NavigationBar/>
                 <NextTopLoader color="#000000" height={1} />
                 {children}
@@ -66,7 +63,7 @@ export default function RootLayout({
 
           </NextAuthProvider>
           </ThemeProvider>
-          </Provider>
+    
       </body>
     </html>
   );

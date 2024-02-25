@@ -1,13 +1,11 @@
 
 "use client";
 
-import { MoonIcon, SunIcon, DribbbleIcon } from "../lib/Icons";
-import { useThemeSwitch } from "../lib/useThemeSwitch";
+import { MoonIcon, SunIcon} from "../lib/Icons";
 import { cx } from "../lib/cx";
 import Link from "next/link";
 import { Menu} from "lucide-react";
 import Search from "./Search";
-import AuthButton from "./AuthButton";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,11 +15,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "./Theme-toggle-Button";
 import { Button } from "./ui/button";
-
-
+import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
 function NavigationBar() {
-  const [mode, setMode] = useThemeSwitch();
-
+  const { setTheme ,theme} = useTheme();
   return (
     <>
       <header>
@@ -46,14 +43,15 @@ function NavigationBar() {
         </div>
    
         <button
-          onClick={() => setMode(mode === "light" ? "dark" : "light")}
+        onClick={() => setTheme(theme  === "light" ? "dark" : "light")}
+          // onClick={() => setMode(mode === "light" ? "dark" : "light")}
           className={cx(
             "w-6 h-6 ease  mt-2  flex items-center justify-center rounded-full p-1 dark:text-white",
-            mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
+            theme === "light" ? "bg-dark text-light" : "bg-light text-dark"
           )}
           aria-label="theme-switcher"
         >
-          {mode === "light" ? (
+          {theme === "light" ? (
             <MoonIcon className={"fill-dark"} />
           ) : (
             <SunIcon className={"fill-dark"} />
@@ -112,4 +110,5 @@ function NavigationBar() {
   );
 }
 
-export default NavigationBar;
+export default dynamic (() => Promise.resolve(NavigationBar), {ssr: false})
+
