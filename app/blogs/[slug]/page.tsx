@@ -36,7 +36,7 @@ export default function Page({ params }: any) {
   const props = getPost(params);
   // console.log(props)
   return (
-    <main className="p-3 md:p-12 lg:pl-48">
+    <main className="p-3 md:p-12 lg:pl-48 bg-white">
       <div className="flex">
         <Link href="/">
           <Button className="bg-white text-gray-800 border hover:text-white">
@@ -50,7 +50,7 @@ export default function Page({ params }: any) {
         </p>
       </div>
       <p className="p-3 font-serif text-gray-500">{props.fontMatter.date}</p>
-      <article className="prose dark:!prose-invert mt-16 md:mt-4 leading-7 [&:not(:first-child)]:mt-6">
+      <article className="prose mt-16 md:mt-4 leading-7 [&:not(:first-child)]:mt-6">
         <h1>{props.fontMatter.title}</h1>
         <Image src={props.fontMatter.image} alt="" width={600} height={300} />
         <div className="md:w-[50vw]">

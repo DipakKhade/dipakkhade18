@@ -96,7 +96,21 @@ function NavigationBar() {
           </DropdownMenu>
 
           <span className="pl-[44vw]">
-            <ModeToggle />
+          <button
+        onClick={() => setTheme(theme  === "light" ? "dark" : "light")}
+          // onClick={() => setMode(mode === "light" ? "dark" : "light")}
+          className={cx(
+            "w-6 h-6 ease  mt-2  flex items-center justify-center rounded-full p-1 dark:text-white",
+            theme === "light" ? "bg-dark text-light" : "bg-light text-dark"
+          )}
+          aria-label="theme-switcher"
+        >
+          {theme === "light" ? (
+            <MoonIcon className={"fill-dark"} />
+          ) : (
+            <SunIcon className={"fill-dark"} />
+          )}
+        </button>
           </span>
 
           <Link href={'/signup'}>

@@ -19,7 +19,7 @@ const Search: FC<SearchProps> = () => {
   return (
     <>
       <div className="flex gap-5 w-full lg:max-w-2xl">
-        <Input placeholder="search notes" />
+        <Input className="dark:text-black" placeholder="search notes" />
         <Button onClick={() => toast(taostdiv())}>search</Button>
       </div>
     </>
