@@ -4,8 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
-import { newUser
- } from "@/prisma";
+import axios from 'axios'
 
 type Inputs = {
   name: string;
@@ -23,10 +22,18 @@ const SignUp: FC<SignUpProps> = () => {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = async (data: any) => {
-    // const user=await newUser(data)
-    console.log(data)
-  };
+    const token=await axios.post('/api/token',{
+     name:data.name,
+     email:data.email,
+     password:data.password
+    })
+    localStorage.setItem('user',JSON.stringify(token.data))
+   console.log(token)
+    
+   };
+ 
 
   return (
     <>
