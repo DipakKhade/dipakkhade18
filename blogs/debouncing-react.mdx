@@ -1,0 +1,94 @@
+---
+image: "https://blog.logrocket.com/wp-content/uploads/2021/09/debouncing-with-react-debounce-input.gif"
+title: "Understanding Debouncing in React"
+date: "Feb 28 2024"
+description: "Dipak Khade"
+readtime: 4 min
+---
+
+# Understanding Debouncing in React
+
+Debouncing is a crucial concept in React when dealing with performance optimization, especially in scenarios where event handlers trigger frequently, such as search inputs or resizing windows.
+
+## What is Debouncing?
+
+Debouncing is a technique used to ensure that a function is not repeatedly called, especially during a short time span. Instead, it delays the execution of the function until after a certain amount of time has passed since the last invocation.
+
+## How to Implement Debouncing in React
+
+In React, debouncing is often implemented using the `useEffect` hook and `setTimeout`. Here's a basic example:
+
+```
+import React, { useState, useEffect } from 'react';
+
+function DebouncedInput() {
+  const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    const delay = 1000; // 1 second
+    const timer = setTimeout(() => {
+      // Your function to handle debounced input changes
+      console.log('Input value debounced:', inputValue);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [inputValue]);
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  return (
+    <input type="text" value={inputValue} onChange={handleChange} />
+  );
+}
+
+export default DebouncedInput;
+```
+
+## Debouncing also can be done using a custom hook
+
+```
+import { useState,useEffect } from "react";
+
+export function useDebounce(input){
+const [debanceValue,setDebounceValue]=useState(input)
+
+    useEffect(function(){
+        let timeOutValue =setTimeout(() => {
+            setDebounceValue(input)
+        }, 400);
+        return ()=>{
+            clearTimeout(timeOutValue)
+        }
+    },[input])
+
+
+    return debanceValue;
+}
+```
+
+### using the a useDebounce custom hook
+
+```
+import React, { useState } from 'react'
+import { useDebounce } from './hooks/debounce';
+
+export default function App(){
+  const [value,setValue]=useState('')
+  const debaounce=useDebounce(value)
+  console.log(debaounce)
+
+  return(
+    <>
+
+    <input
+    onChange={(e)=>setValue(e.target.value)}
+     placeholder='type some query'/>
+
+    query is {debaounce}
+
+    </>
+  )
+}
+```

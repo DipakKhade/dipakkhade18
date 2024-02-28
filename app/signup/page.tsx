@@ -29,7 +29,7 @@ const SignUp: FC<SignUpProps> = () => {
      email:data.email,
      password:data.password
     })
-    localStorage.setItem('user',JSON.stringify(token.data))
+    localStorage.setItem('user',"Bearer"+ JSON.stringify(token.data))
    console.log(token)
     
    };

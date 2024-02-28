@@ -17,6 +17,17 @@ import { ModeToggle } from "./Theme-toggle-Button";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
+
+
 function NavigationBar() {
   const { setTheme ,theme} = useTheme();
   return (
@@ -66,58 +77,32 @@ function NavigationBar() {
       </nav>
 
 
-      <nav>
-      <div className="sm:hidden p-2 flex gap-2 overflow-x-hidden">
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Menu />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>
-                {" "}
-                <Link href={"/"}>Home</Link>
-              </DropdownMenuItem>
-
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <Link href={"https://dipakcodesnippets.vercel.app/"}>
-                  Snippets
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href={"https://dipakkhade-dev.vercel.app/"}>About</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href={"https://dipakkhade-dev.vercel.app/contact"}>
-                  Contact
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <span className="pl-[44vw]">
-          <button
-        onClick={() => setTheme(theme  === "light" ? "dark" : "light")}
-          // onClick={() => setMode(mode === "light" ? "dark" : "light")}
-          className={cx(
-            "w-6 h-6 ease  mt-2  flex items-center justify-center rounded-full p-1 dark:text-white",
-            theme === "light" ? "bg-dark text-light" : "bg-light text-dark"
-          )}
-          aria-label="theme-switcher"
-        >
-          {theme === "light" ? (
-            <MoonIcon className={"fill-dark"} />
-          ) : (
-            <SunIcon className={"fill-dark"} />
-          )}
-        </button>
-          </span>
-
-          <Link href={'/signup'}>
-<Button>sign up</Button>
-
+      <nav className="p-4">
+      <Sheet>
+  <SheetTrigger><Menu/></SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle className="pt-8">Main Menu</SheetTitle>
+      <SheetDescription>
+      <Link href="/" className="mr-2 p-2 hover:text-blue-600 hover:underline">
+         Home
         </Link>
-        </div>
+        <Link
+          href={"https://dipakkhade-dev.vercel.app/"}
+          className="mx-2 p-2 hover:text-blue-600 hover:underline"
+        >
+          About
+        </Link>
+        <Link
+          href={"https://dipakkhade-dev.vercel.app/contact"}
+          className="mx-2 p-2 hover:text-blue-600 hover:underline"
+        >
+          Contact
+        </Link>
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
       </nav>
       </header>
     </>
