@@ -53,13 +53,13 @@ export default function RootLayout({
           <NextAuthProvider>
     
               {/* <Header /> */}
-              <main>
+              <main className="bg-gradient-to-r from-indigo-500">
               <NavigationBar/>
                 <NextTopLoader color="#000000" height={1} />
                 {children}
+              <Footer />
               </main>
               <Toaster />
-              <Footer />
 
           </NextAuthProvider>
           </ThemeProvider>

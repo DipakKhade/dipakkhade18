@@ -56,7 +56,7 @@ const page: FunctionComponent<pageProps> = () => {
 
           <Search />
          </div>
-          <h4 className="text-xl text-muted-foreground p-4">Recent Notes</h4>
+          <h4 className="text-xl text-slate-50 p-4">Recent Notes</h4>
           <div className="flex flex-row flex-wrap gap-6 lg:pl-16">
             {blogs.map((blog) => (
               <Link href={`/blogs/${blog.slug}`} passHref key={blog.slug}>
@@ -94,7 +94,7 @@ const page: FunctionComponent<pageProps> = () => {
         <p>No posts published.</p>
       )}
 <div className="w-[80vw] m-auto h-80 mt-12">
-<p className="text-xl text-blue-600">Terminal</p>
+<p className="text-xl text-slate-900">Terminal</p>
       <Terminal/>
 </div>
     </>

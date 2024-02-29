@@ -6,14 +6,6 @@ import { cx } from "../lib/cx";
 import Link from "next/link";
 import { Menu} from "lucide-react";
 import Search from "./Search";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ModeToggle } from "./Theme-toggle-Button";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
@@ -50,6 +42,10 @@ function NavigationBar() {
           className="mx-2  hover:text-blue-600 hover:underline"
         >
           Contact
+        </Link>
+
+        <Link href={'/vedios'}>
+        Vedios
         </Link>
         </div>
    
