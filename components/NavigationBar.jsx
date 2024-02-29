@@ -80,9 +80,29 @@ function NavigationBar() {
       <nav className="p-4">
       <Sheet>
   <SheetTrigger><Menu/></SheetTrigger>
+  <div className="sm:hidden">
+  <button
+        onClick={() => setTheme(theme  === "light" ? "dark" : "light")}
+          // onClick={() => setMode(mode === "light" ? "dark" : "light")}
+          className={cx(
+            "w-6 h-6 ease  mt-2  flex items-center justify-center rounded-full p-1 dark:text-white",
+            theme === "light" ? "bg-dark text-light" : "bg-light text-dark"
+          )}
+          aria-label="theme-switcher"
+        >
+          {theme === "light" ? (
+            <MoonIcon className={"fill-dark"} />
+          ) : (
+            <SunIcon className={"fill-dark"} />
+          )}
+        </button>
+  </div>
+
+ 
   <SheetContent>
     <SheetHeader>
       <SheetTitle className="pt-8">Main Menu</SheetTitle>
+
       <SheetDescription>
       <Link href="/" className="mr-2 p-2 hover:text-blue-600 hover:underline">
          Home
@@ -100,6 +120,11 @@ function NavigationBar() {
           Contact
         </Link>
       </SheetDescription>
+
+     
+        <Link href={'/signup'}>
+<Button>sign up</Button>
+</Link>
     </SheetHeader>
   </SheetContent>
 </Sheet>

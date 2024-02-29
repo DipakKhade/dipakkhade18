@@ -6,10 +6,10 @@ import matter from "gray-matter";
 import Link from "next/link";
 import Image from "next/image";
 import Search from "@/components/Search";
-import { formatDate } from "@/lib/utils";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Button } from "../components/ui/button";
 import Terminal from '@/components/Terminal'
+
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
@@ -43,9 +43,9 @@ const page: FunctionComponent<pageProps> = () => {
       &lt;Dipak Khade /&gt;
             <span className="text-blue-400 text-sm pl-4">/di.pək/</span>
       </p>
-            <p className="font-thin text-gray-600 p-4 dark:text-slate-100">
-            I share what I&apos;ve been working on recently and things I learned
-            along the way.
+            <p className="font-thin text-pretty p-4 ">
+            I share what I&apos;ve been working on recently <span className="pl-9 sm:pl-0">and things I learned
+            along the way.</span>
           </p>
           <Link href={'https://dipakcodesnippets.vercel.app/'} >
 

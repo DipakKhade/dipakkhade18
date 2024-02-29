@@ -16,6 +16,7 @@ type Inputs = {
 interface SignUpProps {}
 
 const SignUp: FC<SignUpProps> = () => {
+
   const {
     register,
     handleSubmit,
@@ -30,7 +31,10 @@ const SignUp: FC<SignUpProps> = () => {
      password:data.password
     })
     localStorage.setItem('user',"Bearer"+ JSON.stringify(token.data))
-   console.log(token)
+  //  console.log(token)
+
+
+
     
    };
  
@@ -38,6 +42,7 @@ const SignUp: FC<SignUpProps> = () => {
   return (
     <>
       <main className="md:w-[40vw] md:m-auto w-80 p-4 min-h-96 md:mt-[18vh] mt-[15vh]">
+     
         <h3 className="text-3xl font-bold p-4">Sign up</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="">
